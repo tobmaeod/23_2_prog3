@@ -5,7 +5,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import koreanize_matplotlib
 import base64
-import openpyxl
 import io
 
 # 앱에서 사용할 기능 함수 정의 (그래프를 이미지 파일로 저장하는 작업)
