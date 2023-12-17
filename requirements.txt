@@ -5,7 +5,7 @@ matplotlib
 streamlit_folium==0.15.0
 koreanize-matplotlib
 xlsxwriter
-openpyxl==3.0.7
+openpyxl==3.0.9
 python-docx
 docx2txt
 Pillow
