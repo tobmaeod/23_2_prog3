@@ -17,13 +17,21 @@ def create_download_link(data, filename, text):
     b64_ori = base64.b64encode(data).decode()
     href = f'<a href="data:file/png;base64,{b64_ori}" download="{filename}">{text}</a>'
     return href
+# 앱에서 사용할 기능 함수 정의 (엑셀 파일 업로드 작업)
+def to_excel(df):
+    output = io.BytesIO()
+    writer = pd.ExcelWriter(output, engine-"xlsxwriter")
+    df.to_excel(writer, sheet_name="Sheet1", index=False)
+    writer.close()
+    processed_data = output.getvalue()
+    return processed_data
 
 # Streamlit 앱의 제목 설정
 st.title("내가 바로 미래의 기자!")
 
 # 통계자료 파일 업로드
 st.subheader("통계자료 준비하기")
-uploaded_file = st.file_uploader("기사 작성에 사용할 통계자료 파일을 업로드하세요.", type=["xlsx", "xls"])
+uploaded_file = st.file_uploader("기사 작성에 사용할 통계자료 파일을 업로드하세요.")
 
 
 if uploaded_file is not None:
