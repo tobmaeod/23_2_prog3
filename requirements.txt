@@ -4,7 +4,7 @@ folium==0.14.0
 matplotlib
 streamlit_folium==0.15.0
 koreanize-matplotlib
-openpyxl
+openpyxl==3.0.7
 python-docx
 docx2txt
 Pillow
