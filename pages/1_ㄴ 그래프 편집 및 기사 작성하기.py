@@ -62,6 +62,7 @@ else:
         ax.legend(bbox_to_anchor=(1, 1))
 ax.set_xlabel("")
 ax.set_ylabel("")
+plt.show()
 if graph_selected_opt != "그래프 선택하기":
     st.pyplot(fig_sel)
     # 그래프를 이미지로 변환하여 다운로드 링크 생성 (session_state에 저장된 함수 사용)
