@@ -62,9 +62,10 @@ else:
         ax.legend(bbox_to_anchor=(1, 1))
 ax.set_xlabel("")
 ax.set_ylabel("")
-plt.show()
 if graph_selected_opt != "그래프 선택하기":
     st.pyplot(fig_sel)
+    plt.show()
+    plt.savefig('graph.png')
     # 그래프를 이미지로 변환하여 다운로드 링크 생성 (session_state에 저장된 함수 사용)
     graph_image_sel = save_graph_to_image(fig_sel)
     download_link_sel = create_download_link(graph_image_sel.getvalue(), f"편집한 그래프.png", "여기를 눌러 그래프를 다운로드하세요.")
@@ -99,8 +100,6 @@ if st.button("기사 파일 생성하기"):
     if graph_selected_opt != "그래프 선택하기":        # 그래프가 그려져 있으면 그래프를 저장하여 doc 파일에 추가
         plt.show()
         plt.savefig('graph.png')
-        st.session_state['image']=1
-    if 'image' in st.session_state:
         doc.add_picture('graph.png', width=Inches(6))
     doc.add_paragraph(article)
     
