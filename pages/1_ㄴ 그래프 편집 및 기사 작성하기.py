@@ -31,6 +31,7 @@ st.title("기사 작성을 위해 그래프 편집하기")
 
 # 행/열 선택 위젯 생성
 st.subheader("전체 통계자료로부터 그래프를 그릴 자료를 추려봅시다.")
+st.text("메인 페이지에서 전체 통계자료를 업로드해야 기능을 사용할 수 있습니다.")
 option = [#"행",            <-현재 오류로 미구현
        "열"]
 selected_opt = st.selectbox("기준: ", option, key="selected_opt")
