@@ -64,6 +64,7 @@ ax.set_xlabel("")
 ax.set_ylabel("")
 if graph_selected_opt != "그래프 선택하기":
     st.pyplot(fig_sel)
+    plt.show()
     # 그래프를 이미지로 변환하여 다운로드 링크 생성 (session_state에 저장된 함수 사용)
     graph_image_sel = save_graph_to_image(fig_sel)
     download_link_sel = create_download_link(graph_image_sel.getvalue(), f"편집한 그래프.png", "여기를 눌러 그래프를 다운로드하세요.")
