@@ -15,7 +15,7 @@ from PIL import Image
 st.title("작성된 기사 읽고 비판하기")
 
 # MS Word 파일 업로드하기
-uploaded_file = st.file_uploader("Word 파일을 업로드하세요.", type=["docx"])
+uploaded_file = st.file_uploader("Word 파일 업로드하기.", type=["docx"])
 
 # 파일이 업로드되었는지 확인
 if uploaded_file is not None:
@@ -55,6 +55,6 @@ if st.button("검토 파일 생성하기"):
 
         # MS Word 파일 다운로드 링크 생성    
         b64_cr_txt = base64.b64encode(file_data_cr.getvalue()).decode()
-        href = f'<a href="data:application/octet-stream;base64,{b64_cr_txt}" download="{student_info}_article_cr.docx">MS Word 파일로 다운로드하기</a>'
+        href = f'<a href="data:application/octet-stream;base64,{b64_cr_txt}" download="{student_info}_article_cr.docx">MS Word 파일로 저장하기</a>'
         if article and student_info:
             st.markdown(href, unsafe_allow_html=True)

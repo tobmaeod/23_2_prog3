@@ -68,7 +68,7 @@ if graph_selected_opt != "그래프 선택하기":
     plt.savefig('graph.png')
     # 그래프를 이미지로 변환하여 다운로드 링크 생성 (session_state에 저장된 함수 사용)
     graph_image_sel = save_graph_to_image(fig_sel)
-    download_link_sel = create_download_link(graph_image_sel.getvalue(), f"편집한 그래프.png", "여기를 눌러 그래프를 다운로드하세요.")
+    download_link_sel = create_download_link(graph_image_sel.getvalue(), f"편집한 그래프.png", "페이지와 컴퓨터에 그래프 저장하기")
     st.markdown(download_link_sel, unsafe_allow_html=True)
 # 데이터에서 통계량을 출력하는 코드
     stats_option = ["통계량을 선택하세요.", "자료의 개수", "평균", "중앙값", "최빈값", "분산", "표준편차"] # 다양한 통계량을 출력할 수 있도록 기능 개선하면 좋음
@@ -108,7 +108,7 @@ if st.button("기사 파일 생성하기"):
 
     # MS Word 파일 다운로드 링크 생성
     b64_txt = base64.b64encode(file_data.getvalue()).decode()
-    href = f'<a href="data:application/octet-stream;base64,{b64_txt}" download="article.docx">MS Word 파일로 다운로드하기</a>'
+    href = f'<a href="data:application/octet-stream;base64,{b64_txt}" download="article.docx">MS Word 파일로 저장하기</a>'
     st.markdown(href, unsafe_allow_html=True)
 
 
