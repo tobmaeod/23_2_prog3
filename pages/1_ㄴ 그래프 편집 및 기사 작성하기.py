@@ -8,6 +8,7 @@ import base64
 import io
 import docx
 from docx.shared import Inches
+from matplotlib.backends.backend_agg import FigureCanvasAgg
 
 # Streamlit 앱의 제목 설정
 st.title("기사 작성을 위해 그래프 편집하기")
@@ -98,7 +99,10 @@ article = st.text_area("기사를 작성하세요.", height=200)
 if st.button("기사 파일 생성하기"):
     doc = docx.Document()         # 비어있는 docx 파일 생성
     if graph_selected_opt != "그래프 선택하기":        # 그래프가 그려져 있으면 그래프를 저장하여 doc 파일에 추가
-        doc.add_picture('graph.png', width=Inches(6))
+        buf = io.BytesIO()          # matplotlib figure를 메모리의 이미지로 변환
+        FigureCanvasAgg(fig_sel).print_png(buf)
+        buf.seek(0)
+        doc.add_picture(buf, width=Inches(6))
     doc.add_paragraph(article)
     
     # MS Word 파일 생성
