@@ -98,8 +98,6 @@ article = st.text_area("기사를 작성하세요.", height=200)
 if st.button("기사 파일 생성하기"):
     doc = docx.Document()         # 비어있는 docx 파일 생성
     if graph_selected_opt != "그래프 선택하기":        # 그래프가 그려져 있으면 그래프를 저장하여 doc 파일에 추가
-        plt.show()
-        plt.savefig('graph.png')
         doc.add_picture('graph.png', width=Inches(6))
     doc.add_paragraph(article)
     
